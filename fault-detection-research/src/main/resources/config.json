@@ -1,0 +1,51 @@
+{
+  "simulation": {
+    "numberOfHosts": 10,
+    "numberOfVms": 50,
+    "numberOfCloudlets": 200,
+    "simulationDuration": 3600.0,
+    "telemetryInterval": 1.0
+  },
+  "faultInjection": {
+    "startTime": 1800.0,
+    "probability": 0.15,
+    "faultTypes": [
+      "FAN_FAILURE",
+      "POWER_SUPPLY_DEGRADATION",
+      "DISK_FAILURE",
+      "THERMAL_ISSUE"
+    ]
+  },
+  "dataCollection": {
+    "collectCpuMetrics": true,
+    "collectPowerMetrics": true,
+    "collectTemperatureMetrics": true,
+    "collectVibrationMetrics": true,
+    "collectSystemLogs": true
+  },
+  "fusion": {
+    "strategy": "WEIGHTED_AVERAGE",
+    "modalityWeights": {
+      "cpu": 0.3,
+      "power": 0.25,
+      "temperature": 0.25,
+      "vibration": 0.2
+    }
+  },
+  "models": {
+    "useRandomForest": true,
+    "useXGBoost": true,
+    "useLSTMAutoencoder": true,
+    "useIsolationForest": true,
+    "confidenceThreshold": 0.7
+  },
+  "evaluation": {
+    "earlyDetectionThresholdSeconds": 300.0
+  },
+  "paths": {
+    "outputDirectory": "output/research-results",
+    "telemetryOutputPath": "output/telemetry",
+    "modelsDirectory": "models",
+    "datasetsDirectory": "datasets"
+  }
+}

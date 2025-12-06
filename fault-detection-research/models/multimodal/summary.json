@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-10-15T17:14:32.432203",
+  "dataset_stats": {
+    "total_telemetry_samples": 14400,
+    "total_log_sequences": 322,
+    "total_fault_events": 13,
+    "positive_samples": 948,
+    "negative_samples": 13452
+  },
+  "model_performance": {
+    "telemetry_only": {
+      "accuracy": 0.9861111111111112,
+      "precision": 0.9807692307692307,
+      "recall": 0.8052631578947368,
+      "f1": 0.884393063583815
+    },
+    "log_only": {
+      "accuracy": 0.9510416666666667,
+      "precision": 0.7333333333333333,
+      "recall": 0.4052631578947368,
+      "f1": 0.5220338983050847
+    },
+    "fusion": {
+      "accuracy": 0.9840277777777777,
+      "precision": 0.9864864864864865,
+      "recall": 0.7684210526315789,
+      "f1": 0.863905325443787,
+      "confusion_matrix": [
+        [
+          2688,
+          2
+        ],
+        [
+          44,
+          146
+        ]
+      ]
+    }
+  },
+  "early_detection": {
+    "total_detections": 13,
+    "avg_lead_time_seconds": 258.0769230769231,
+    "max_lead_time_seconds": 413.0,
+    "min_lead_time_seconds": 150.0
+  }
+}

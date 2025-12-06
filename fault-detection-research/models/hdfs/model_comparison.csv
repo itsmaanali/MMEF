@@ -1,0 +1,4 @@
+Model,Accuracy,Precision,Recall,F1-Score
+Random Forest,1.000,1.000,1.000,1.000
+Gradient Boosting,1.000,1.000,1.000,1.000
+Isolation Forest,1.000,1.000,1.000,1.000

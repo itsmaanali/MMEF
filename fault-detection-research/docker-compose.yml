@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  # Main fault detection research environment
+  fault-detection:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fault-detection-research:latest
+    container_name: fault-detection-env
+
+    # Interactive terminal
+    stdin_open: true
+    tty: true
+
+    # Volume mounts - persist data and models
+    volumes:
+      # Mount entire project
+      - .:/workspace
+
+      # Persist trained models
+      - models-data:/workspace/models
+
+      # Persist output plots
+      - output-data:/workspace/output
+
+      # Persist datasets
+      - datasets-data:/workspace/datasets
+
+      # Share downloads from host (optional - for large datasets)
+      - ${HOME}/Downloads:/downloads:ro
+
+    # Environment variables
+    environment:
+      - PYTHONUNBUFFERED=1
+      - RANDOM_STATE=42
+      - EXPERIMENT_NAME=docker-run
+
+    # Resource limits (adjust based on your machine)
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+        reservations:
+          cpus: '2.0'
+          memory: 4G
+
+    # Ports (for future Jupyter/web interfaces)
+    ports:
+      - "8888:8888"  # Jupyter
+      - "8080:8080"  # Web dashboard (future)
+
+    # Network
+    networks:
+      - research-net
+
+    # Keep container running
+    command: tail -f /dev/null
+
+  # Optional: Jupyter notebook service
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fault-detection-research:latest
+    container_name: jupyter-notebook
+
+    volumes:
+      - .:/workspace
+      - models-data:/workspace/models
+      - output-data:/workspace/output
+
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+
+    ports:
+      - "8888:8888"
+
+    networks:
+      - research-net
+
+    command: >
+      bash -c "pip install jupyter jupyterlab &&
+               jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+               --allow-root --NotebookApp.token=''
+               --NotebookApp.password=''"
+
+    profiles:
+      - jupyter  # Only start with: docker-compose --profile jupyter up
+
+# Named volumes for persistence
+volumes:
+  models-data:
+    driver: local
+  output-data:
+    driver: local
+  datasets-data:
+    driver: local
+
+# Network
+networks:
+  research-net:
+    driver: bridge

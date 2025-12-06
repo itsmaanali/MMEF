@@ -1,0 +1,46 @@
+{
+  "generated_at": "2025-10-15T17:12:24.476516",
+  "configuration": {
+    "num_hosts": 20,
+    "duration_seconds": 3600,
+    "sample_interval": 5,
+    "random_seed": 42
+  },
+  "statistics": {
+    "total_telemetry_samples": 14400,
+    "normal_samples": 13452,
+    "early_warning_samples": 678,
+    "fault_samples": 270,
+    "total_log_sequences": 322,
+    "normal_logs": 309,
+    "anomaly_logs": 13,
+    "fault_events": 13
+  },
+  "fault_scenarios": {
+    "DISK_FAILURE": {
+      "probability": 0.15,
+      "early_warning_time": 300,
+      "duration": 120
+    },
+    "IO_EXCEPTION": {
+      "probability": 0.12,
+      "early_warning_time": 240,
+      "duration": 90
+    },
+    "NETWORK_TIMEOUT": {
+      "probability": 0.1,
+      "early_warning_time": 180,
+      "duration": 60
+    },
+    "MEMORY_LEAK": {
+      "probability": 0.08,
+      "early_warning_time": 420,
+      "duration": 180
+    },
+    "CHECKSUM_ERROR": {
+      "probability": 0.1,
+      "early_warning_time": 150,
+      "duration": 75
+    }
+  }
+}

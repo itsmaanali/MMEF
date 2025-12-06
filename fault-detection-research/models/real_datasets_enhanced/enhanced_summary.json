@@ -1,0 +1,62 @@
+{
+  "experiment": "Experiment #005",
+  "timestamp": "2025-10-15T17:47:59.307160",
+  "improvements": {
+    "smote_applied": true,
+    "temporal_windows": [
+      5,
+      10,
+      20,
+      50
+    ],
+    "feature_count": {
+      "telemetry": 209,
+      "incident": 13
+    },
+    "ensemble_models": [
+      "RandomForest",
+      "GradientBoosting",
+      "ExtraTrees"
+    ],
+    "fusion_method": "LogisticRegression"
+  },
+  "datasets": {
+    "machine_telemetry": {
+      "samples": 3000,
+      "machines": 3000,
+      "failures": 298
+    },
+    "incident_log": {
+      "samples": 10000,
+      "incidents": 1446,
+      "severe": 604
+    }
+  },
+  "performance": {
+    "telemetry": {
+      "accuracy": 0.8666666666666667,
+      "precision": 0.08333333333333333,
+      "recall": 0.03333333333333333,
+      "f1_score": 0.047619047619047616,
+      "roc_auc": 0.39432098765432094
+    },
+    "incident": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0
+    },
+    "fusion": {
+      "accuracy": 0.8933333333333333,
+      "precision": 0.8409090909090909,
+      "recall": 0.39361702127659576,
+      "f1_score": 0.5362318840579711,
+      "roc_auc": 0.7172966949793962
+    }
+  },
+  "comparison_with_exp004": {
+    "telemetry_f1_improvement": 0.047619047619047616,
+    "fusion_f1_improvement": 0.006231884057971038
+  }
+}

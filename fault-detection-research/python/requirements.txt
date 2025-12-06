@@ -1,0 +1,25 @@
+# Python dependencies for fault detection ML models
+
+# Core ML libraries
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+xgboost>=2.0.0
+
+# Deep learning
+tensorflow>=2.14.0
+keras>=2.14.0
+
+# Data processing
+scipy>=1.11.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Model persistence
+joblib>=1.3.0
+pickle5>=0.0.12
+
+# Utilities
+tqdm>=4.65.0

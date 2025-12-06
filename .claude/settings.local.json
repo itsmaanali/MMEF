@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(mvn clean install:*)",
+      "Bash(./mvnw clean:*)",
+      "Bash(java:*)",
+      "Bash(cd:*)",
+      "Bash(python3 -m pip install:*)",
+      "Bash(python3:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Read(//Users/maanalghamdi/Downloads/**)",
+      "Bash(python:*)",
+      "Bash(chmod:*)",
+      "Bash(awk:*)",
+      "Bash(wc:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

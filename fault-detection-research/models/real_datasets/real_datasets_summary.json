@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-10-15T17:31:00.187085",
+  "datasets": {
+    "machine_telemetry": {
+      "samples": 3000,
+      "machines": 3000,
+      "failures": 298
+    },
+    "incident_log": {
+      "samples": 10000,
+      "incidents": 1446,
+      "severe": 604
+    }
+  },
+  "performance": {
+    "telemetry": {
+      "accuracy": 0.8933333333333333,
+      "f1_score": 0.0
+    },
+    "incident": {
+      "accuracy": 1.0,
+      "f1_score": 1.0
+    },
+    "fusion": {
+      "accuracy": 0.8966666666666666,
+      "f1_score": 0.5303030303030303
+    }
+  }
+}
